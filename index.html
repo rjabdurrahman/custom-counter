@@ -1,147 +1,189 @@
 <!DOCTYPE html>
 <html>
-<style>
-    body {
-        margin: 0;
-    }
 
-    div.range-container {
-        padding: 40px;
-    }
+<head>
+    <title>Custom Counter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
 
-    div.range-container input {
-        border: none;
-        background-color: transparent;
-        width: 50px;
-        text-align: center;
-    }
+        ul {
+            /* padding: 0; */
+            margin: 0;
+            font-size: 18px;
+            color: red;
+            margin-bottom: 20px;
+        }
 
-    .flex-row {
-        max-width: 300px;
-        display: flex;
-        gap: 10px;
-        font-size: 22px;
-        justify-content: space-between;
-        margin-bottom: 8px;
-    }
+        div.range-container {
+            padding: 40px;
+        }
 
-    .flex-row input {
-        font-size: 22px;
-    }
+        div.range-container input {
+            border: none;
+            background-color: transparent;
+            width: 50px;
+            text-align: center;
+        }
 
-    .flex-row button {
-        font-size: 22px;
-        height: 35px;
-        width: 35px;
-    }
-</style>
+        .flex-row {
+            max-width: 300px;
+            display: flex;
+            gap: 10px;
+            font-size: 22px;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .flex-row input {
+            font-size: 22px;
+        }
+
+        .flex-row button {
+            font-size: 22px;
+            height: 35px;
+            width: 35px;
+        }
+    </style>
+</head>
 
 <body>
     <div class="range-container">
-        <h1>Display a Range</h1>
+        <h1>Custom Counter</h1>
+        <div class="alert-box">
+            <ul class="alert-messages">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
         <div class="flex-row">
             <div>C1</div>
-            <input class="range-value" type="text" id="counter1" value="0" min="0" max="100" disabled>
+            <input class="counter-value" type="text" id="counter1" value="0" min="0" max="100" disabled>
             <div class="percent" id="per1">0%</div>
             <div>
-                <button onclick="counter(1, 'increment')">+</button>
-                <button onclick="counter(1, 'decrement')">-</button>
+                <button class="counter-btn" onclick="counter(1, 'increment')">+</button>
+                <button class="counter-btn" onclick="counter(1, 'decrement')">-</button>
             </div>
         </div>
         <div class="flex-row">
             <div>C2</div>
-            <input class="range-value" type="text" id="counter2" value="0" min="0" max="100" disabled>
+            <input class="counter-value" type="text" id="counter2" value="0" min="0" max="100" disabled>
             <div class="percent" id="per2">0%</div>
             <div>
-                <button onclick="counter(2, 'increment')">+</button>
-                <button onclick="counter(2, 'decrement')">-</button>
+                <button class="counter-btn" onclick="counter(2, 'increment')">+</button>
+                <button class="counter-btn" onclick="counter(2, 'decrement')">-</button>
             </div>
         </div>
         <div class="flex-row">
             <div>C3</div>
-            <input class="range-value" type="text" id="counter3" value="0" min="0" max="100" disabled>
+            <input class="counter-value" type="text" id="counter3" value="0" min="0" max="100" disabled>
             <div class="percent" id="per2">0%</div>
             <div>
-                <button onclick="counter(3, 'increment')">+</button>
-                <button onclick="counter(3, 'decrement')">-</button>
+                <button class="counter-btn" onclick="counter(3, 'increment')">+</button>
+                <button class="counter-btn" onclick="counter(3, 'decrement')">-</button>
             </div>
         </div>
         <div class="flex-row">
             <div>C4</div>
-            <input class="range-value" type="text" id="counter4" value="0" min="0" max="100" disabled>
+            <input class="counter-value" type="text" id="counter4" value="0" min="0" max="100" disabled>
             <div class="percent" id="per2">0%</div>
             <div>
-                <button onclick="counter(4, 'increment')">+</button>
-                <button onclick="counter(4, 'decrement')">-</button>
+                <button class="counter-btn" onclick="counter(4, 'increment')">+</button>
+                <button class="counter-btn" onclick="counter(4, 'decrement')">-</button>
             </div>
         </div>
         <div class="flex-row">
             <div>C5</div>
-            <input class="range-value" type="text" id="counter5" value="0" min="0" max="100" disabled>
+            <input class="counter-value" type="text" id="counter5" value="0" min="0" max="100" disabled>
             <div class="percent" id="per2">0%</div>
             <div>
-                <button onclick="counter(5, 'increment')">+</button>
-                <button onclick="counter(5, 'decrement')">-</button>
+                <button class="counter-btn" onclick="counter(5, 'increment')">+</button>
+                <button class="counter-btn" onclick="counter(5, 'decrement')">-</button>
             </div>
         </div>
     </div>
     <script>
-        let allValEls = document.querySelectorAll('.range-value');
+        let allValEls = document.querySelectorAll('.counter-value');
         let allPercentageEls = document.querySelectorAll('.percent');
 
+        // Incrment or Decrement Handler
         function counter(serial, mode) {
-            let counterEl = document.getElementById('counter' + serial);
-            let value = Number(counterEl.value)
+            let counterEl = $('#counter' + serial);
+            let value = Number(counterEl.val())
             if (mode === 'increment' && value < 100) {
-                document.getElementById('counter' + serial).value = value + 1
+                $('#counter' + serial).val(value + 1)
             }
             else if (mode === 'decrement' && value > 0) {
-                document.getElementById('counter' + serial).value = value - 1
+                $('#counter' + serial).val(value - 1)
             }
+            // Calculate Percent after each Increment or Decrement
             calPercentage()
         }
 
+        // Calculate Sum of all the counters
         function getTotal() {
             return Array.from(allValEls).map(x => Number(x.value)).reduce((x, total) => total + x, 0) || 1;
         }
 
+        // Calculate percentage and bind it render it
         function calPercentage() {
             allPercentageEls.forEach((x, idx) => {
-                x.textContent = Math.round(allValEls[idx].value / getTotal() * 100) + '%';
+                $(x).text(Math.round(allValEls[idx].value / getTotal() * 100) + '%');
             })
         }
+
+        // Alert Logics
+        let allAlertMessageEls = $('.alert-messages li')
+        allAlertMessageEls.hide();
+        $('.counter-btn').on('click', () => {
+            if(Number($(`#counter1`).val()) >= 3) {
+                allAlertMessageEls.eq(0).text('C1 value is now in danger (3)!').show();
+            } else {
+                allAlertMessageEls.eq(0).text('').hide();
+            }
+            if(Number($(`#counter2`).val()) >= 5) {
+                allAlertMessageEls.eq(1).text('C2 value is now in over now (5)!').show();
+            } else {
+                allAlertMessageEls.eq(1).text('').hide();
+            }
+        })
 
         function handleKeypress(event) {
             event = event || window.event;
             event.preventDefault();
 
-            let buttonsEl = document.querySelectorAll('.range-container button');
+            let buttonsEl = $('.range-container button');
             switch (event.key || event.keyCode) {
-                case 'F1': buttonsEl[0].click();
+                case 'F1': buttonsEl.eq(0).click();
                     break;
-                case 'F2': buttonsEl[2].click();
+                case 'F2': buttonsEl.eq(2).click();
                     break;
-                case 'F3': buttonsEl[4].click();
+                case 'F3': buttonsEl.eq(4).click();
                     break;
-                case 'F4': buttonsEl[6].click();
+                case 'F4': buttonsEl.eq(6).click();
                     break;
-                case 'F5': buttonsEl[8].click();
+                case 'F5': buttonsEl.eq(8).click();
                     break;
-                case 'F6': buttonsEl[1].click();
+                case 'F6': buttonsEl.eq(1).click();
                     break;
-                case 'F7': buttonsEl[3].click();
+                case 'F7': buttonsEl.eq(3).click();
                     break;
-                case 'F8': buttonsEl[5].click();
+                case 'F8': buttonsEl.eq(5).click();
                     break;
-                case 'F9': buttonsEl[7].click();
+                case 'F9': buttonsEl.eq(7).click();
                     break;
-                case 'F10': buttonsEl[9].click();
+                case 'F10': buttonsEl.eq(9).click();
                     break;
                 default: return;
             }
         }
 
-        document.addEventListener('keydown', handleKeypress)
+        $(document).on('keydown', handleKeypress)
     </script>
 
 </body>

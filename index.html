@@ -25,16 +25,20 @@
             border: none;
             background-color: transparent;
             width: 50px;
-            text-align: center;
+            text-align: right;
         }
 
         .flex-row {
-            max-width: 300px;
+            max-width: 320px;
             display: flex;
             gap: 10px;
             font-size: 22px;
             justify-content: space-between;
             margin-bottom: 8px;
+        }
+
+        .flex-row div:first-of-type {
+            flex-basis: 60px;
         }
 
         .flex-row input {
@@ -106,6 +110,14 @@
                 <button class="counter-btn" onclick="counter(5, 'decrement')">-</button>
             </div>
         </div>
+        <div class="flex-row">
+            <div>Total</div>
+            <div>
+                <input type="text" id="total" value="0" disabled>
+            </div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
     </div>
     <script>
         let allValEls = document.querySelectorAll('.counter-value');
@@ -132,6 +144,7 @@
 
         // Calculate percentage and bind it render it
         function calPercentage() {
+            $('#total').val(getTotal())
             allPercentageEls.forEach((x, idx) => {
                 $(x).text(Math.round(allValEls[idx].value / getTotal() * 100) + '%');
             })

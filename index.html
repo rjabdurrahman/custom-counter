@@ -9,12 +9,8 @@
             margin: 0;
         }
 
-        ul {
-            /* padding: 0; */
-            margin: 0;
-            font-size: 18px;
+        .range-container .error-message {
             color: red;
-            margin-bottom: 20px;
         }
 
         div.range-container {
@@ -29,7 +25,7 @@
         }
 
         .flex-row {
-            max-width: 320px;
+            max-width: 520px;
             display: flex;
             gap: 10px;
             font-size: 22px;
@@ -56,68 +52,106 @@
 <body>
     <div class="range-container">
         <h1>Custom Counter</h1>
-        <div class="alert-box">
-            <ul class="alert-messages">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="flex-row">
-            <div>C1</div>
-            <input class="counter-value" type="text" id="counter1" value="0" min="0" max="100" disabled>
-            <div class="percent" id="percent1">0%</div>
-            <div>
-                <button class="counter-btn" onclick="counter(1, 'increment')">+</button>
-                <button class="counter-btn" onclick="counter(1, 'decrement')">-</button>
-            </div>
-        </div>
-        <div class="flex-row">
-            <div>C2</div>
-            <input class="counter-value" type="text" id="counter2" value="0" min="0" max="100" disabled>
-            <div class="percent" id="percent2">0%</div>
-            <div>
-                <button class="counter-btn" onclick="counter(2, 'increment')">+</button>
-                <button class="counter-btn" onclick="counter(2, 'decrement')">-</button>
-            </div>
-        </div>
-        <div class="flex-row">
-            <div>C3</div>
-            <input class="counter-value" type="text" id="counter3" value="0" min="0" max="100" disabled>
-            <div class="percent" id="percent3">0%</div>
-            <div>
-                <button class="counter-btn" onclick="counter(3, 'increment')">+</button>
-                <button class="counter-btn" onclick="counter(3, 'decrement')">-</button>
-            </div>
-        </div>
-        <div class="flex-row">
-            <div>C4</div>
-            <input class="counter-value" type="text" id="counter4" value="0" min="0" max="100" disabled>
-            <div class="percent" id="percent4">0%</div>
-            <div>
-                <button class="counter-btn" onclick="counter(4, 'increment')">+</button>
-                <button class="counter-btn" onclick="counter(4, 'decrement')">-</button>
-            </div>
-        </div>
-        <div class="flex-row">
-            <div>C5</div>
-            <input class="counter-value" type="text" id="counter5" value="0" min="0" max="100" disabled>
-            <div class="percent" id="percent5">0%</div>
-            <div>
-                <button class="counter-btn" onclick="counter(5, 'increment')">+</button>
-                <button class="counter-btn" onclick="counter(5, 'decrement')">-</button>
-            </div>
-        </div>
-        <div class="flex-row">
-            <div>Total</div>
-            <div>
-                <input type="text" id="total" value="0" disabled>
-            </div>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-        </div>
+        <table>
+            <tr>
+                <td>C1</td>
+                <td>
+                    <input class="counter-value" type="text" id="counter1" value="0" min="0" max="100" disabled>
+                </td>
+                <td>
+                    <div class="percent" id="percent1">0%</div>
+                </td>
+                <td>
+                    <div>
+                        <button class="counter-btn" onclick="counter(1, 'increment')">+</button>
+                        <button class="counter-btn" onclick="counter(1, 'decrement')">-</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="alert-message">Message</div>
+                </td>
+            </tr>
+            <tr>
+                <td>C2</td>
+                <td>
+                    <input class="counter-value" type="text" id="counter2" value="0" min="0" max="100" disabled>
+                </td>
+                <td>
+                    <div class="percent" id="percent2">0%</div>
+                </td>
+                <td>
+                    <div>
+                        <button class="counter-btn" onclick="counter(2, 'increment')">+</button>
+                        <button class="counter-btn" onclick="counter(2, 'decrement')">-</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="alert-message">Message</div>
+                </td>
+            </tr>
+            <tr>
+                <td>C3</td>
+                <td>
+                    <input class="counter-value" type="text" id="counter3" value="0" min="0" max="100" disabled>
+                </td>
+                <td>
+                    <div class="percent" id="percent3">0%</div>
+                </td>
+                <td>
+                    <div>
+                        <button class="counter-btn" onclick="counter(3, 'increment')">+</button>
+                        <button class="counter-btn" onclick="counter(3, 'decrement')">-</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="alert-message">Message</div>
+                </td>
+            </tr>
+            <tr>
+                <td>C4</td>
+                <td>
+                    <input class="counter-value" type="text" id="counter4" value="0" min="0" max="100" disabled>
+                </td>
+                <td>
+                    <div class="percent" id="percent4">0%</div>
+                </td>
+                <td>
+                    <div>
+                        <button class="counter-btn" onclick="counter(4, 'increment')">+</button>
+                        <button class="counter-btn" onclick="counter(4, 'decrement')">-</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="alert-message">Message</div>
+                </td>
+            </tr>
+            <tr>
+                <td>C5</td>
+                <td>
+                    <input class="counter-value" type="text" id="counter5" value="0" min="0" max="100" disabled>
+                </td>
+                <td>
+                    <div class="percent" id="percent5">0%</div>
+                </td>
+                <td>
+                    <div>
+                        <button class="counter-btn" onclick="counter(5, 'increment')">+</button>
+                        <button class="counter-btn" onclick="counter(5, 'decrement')">-</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="alert-message">Message</div>
+                </td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>
+                    <input type="text" id="total" value="0" disabled>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
     </div>
     <script>
         let allValEls = document.querySelectorAll('.counter-value');
@@ -151,18 +185,18 @@
         }
 
         // Alert Logics
-        let allAlertMessageEls = $('.alert-messages li');
+        let allAlertMessageEls = $('.alert-message');
         function getPercentNumber(selector) {
             return Number($(selector).text().replace('%', ''));
         }
         allAlertMessageEls.hide();
         $('.counter-btn').on('click', () => {
-            if(getPercentNumber(`#percent1`) >= 60) {
+            if (getPercentNumber(`#percent1`) >= 60) {
                 allAlertMessageEls.eq(0).text('C1 percentage gone above 60%!').show();
             } else {
                 allAlertMessageEls.eq(0).text('').hide();
             }
-            if(Number($(`#counter2`).val()) >= 5) {
+            if (Number($(`#counter2`).val()) >= 5) {
                 allAlertMessageEls.eq(1).text('C2 value is now in over now (5)!').show();
             } else {
                 allAlertMessageEls.eq(1).text('').hide();

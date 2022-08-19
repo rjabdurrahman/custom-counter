@@ -9,7 +9,7 @@
             margin: 0;
         }
 
-        .range-container .error-message {
+        .range-container .alert-message {
             color: red;
         }
 
@@ -24,24 +24,29 @@
             text-align: right;
         }
 
-        .flex-row {
-            max-width: 520px;
-            display: flex;
-            gap: 10px;
+        div.range-container table {
             font-size: 22px;
-            justify-content: space-between;
             margin-bottom: 8px;
         }
 
-        .flex-row div:first-of-type {
-            flex-basis: 60px;
+        div.range-container table tr td:nth-of-type(2) {
+            width: 60px;
+            padding-right: 20px;
         }
 
-        .flex-row input {
+        div.range-container table tr td:nth-of-type(3) {
+            width: 80px;
+        }
+
+        div.range-container table tr td:nth-of-type(5) {
+            padding-left: 10px;
+        }
+
+        div.range-container table input {
             font-size: 22px;
         }
 
-        .flex-row button {
+        div.range-container table button {
             font-size: 22px;
             height: 35px;
             width: 35px;
